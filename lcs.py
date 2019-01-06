@@ -56,7 +56,7 @@ def lcs3(str1, str2):
         elif path[i][j] == -1:  # from behind
             j -= 1
     path_trace.reverse() 
-    return path_trace, lookup[m-1][n-1]
+    return path_trace
 
 
 def lcs2(str1, str2):
@@ -167,9 +167,17 @@ def lcs_recursive_from_front(str1, str2):
 
 def lcs_test():
     # print(lcs_recursive_from_front("TGCATA", "ATCTGAT"))
-    path, length = lcs3("TGCATA", "ATCTGAT")
-    print(" -> ".join(path))
-    print(length)
+    subsequence = lcs3("TGCATA", "ATCTGAT")
+    print("".join(subsequence))
+    print("Length: %d" % len(subsequence))
+    print()
+    subsequence = lcs3("ABCDGH", "AEDFHR")
+    print("".join(subsequence))
+    print("Length: %d" % len(subsequence))
+    print()
+    subsequence = lcs3("AGGTAB", "GXTXAYB")
+    print("".join(subsequence))
+    print("Length: %d" % len(subsequence))
 
 
 lcs_test()
